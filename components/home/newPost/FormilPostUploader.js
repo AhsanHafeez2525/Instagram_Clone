@@ -47,7 +47,6 @@ const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
       onChangeText={handleChange("imageUrl")}
       onBlur={handleBlur('imageUrl')}
       value={values.imageUrl}
-
       />
       {errors.imageUrl && (
         <Text style={{fontSize: 10, color: 'red'}}>
@@ -58,12 +57,25 @@ const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
       onPress={handleSubmit}
       title='Share'
       disabled={!isValid}
-
+      style={[styles.button, styles.buttonText]}
       />
     </>
     }
     </Formik>
   )
 }
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  button:{
+    backgroundColor: '#0096F6',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 42,
+    borderRadius: 4,
+   },
+   buttonText:{
+    fontWeight: '600',
+    color: '#fff',
+    fontSize: 20,
+   }
+})
 export default FormilPostUploader

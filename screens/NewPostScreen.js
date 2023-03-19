@@ -9,6 +9,5 @@ const NewPostScreen = ({navigation}) => {
     </SafeAreaView>
   )
 }
-
 const styles = StyleSheet.create({})
 export default NewPostScreen

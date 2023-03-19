@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginHorizontal: 20,
         marginTop: 0,
-
-    },
+ },
     iconsContainer:{
 flexDirection: 'row',
     },
@@ -77,6 +76,5 @@ zIndex: 100,
 unreadBadgeText:{
     color: 'white',
     fontWeight: '600',
-
 },
 })
