@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native'
 import { Divider } from 'react-native-elements'
-
 export const bottomTabIcons = [
     {
         name: 'Home',
@@ -29,10 +28,8 @@ export const bottomTabIcons = [
         inctive: 'https://media.licdn.com/dms/image/C4D03AQE6c4zacLKvDw/profile-displayphoto-shrink_200_200/0/1611420809196?e=1681948800&v=beta&t=m_-H2AsywMyQKGYb838kV8GuJqWlLwHTV019mI46j-g'
     },
 ]
-
 const BottomTabs = ({icons}) => {
 const [activeTab, setActiveTab] = useState('Home')
-
 const Icon = ({icon}) =>(
     <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
         <Image source={{uri: activeTab === icon.name ? icon.active : icon.inctive}} style={[styles.icon, icon.name === 'Profile' ? styles.profilePic(): null, activeTab === 'Profile' && icon.name === activeTab ? styles.profilePic(activeTab):null]} />
@@ -49,9 +46,7 @@ const Icon = ({icon}) =>(
     </View>
   )
 }
-
 export default BottomTabs
-
 const styles = StyleSheet.create({
 wrapper:{
 position: 'absolute',
@@ -59,17 +54,13 @@ width: '100%',
 bottom: '0.1%',
 zIndex: 999,
 backgroundColor: '#000',
-
-
 },
-
-    container:{
+  container:{
 flexDirection: 'row',
 justifyContent: 'space-around',
 height: 50,
 paddingTop: 10,
     },
-
     icon:{
         width: 30,
         height:30,

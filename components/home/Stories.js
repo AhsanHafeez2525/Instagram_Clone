@@ -1,8 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView,Image  } from 'react-native'
 import { USERS } from '../../data/users'
-
-
 const Stories = () => {
   return (
     <View>
@@ -21,9 +19,7 @@ style={styles.story}
     </View>
   )
 }
-
 export default Stories
-
 const styles = StyleSheet.create({
     story: {
         width: 70,

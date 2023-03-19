@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-
 const Header = () => {
   return (
     <View style={styles.container}>
@@ -27,9 +26,7 @@ const Header = () => {
     <TouchableOpacity>
     <View style={styles.unreadBadge}>
 <Text style={styles.unreadBadgeText}>
-11
-
-</Text>
+11</Text>
     </View>
         <Image 
             source={{
@@ -38,14 +35,11 @@ const Header = () => {
             style={styles.icon}
         />
     </TouchableOpacity>
-
     </View>
     </View>
   )
 }
-
 export default Header
-
 const styles = StyleSheet.create({
     container:{
         justifyContent: 'space-between',

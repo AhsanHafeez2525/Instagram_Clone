@@ -1,8 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { Divider } from 'react-native-elements'
-
-
 const postFooterIcons = [
     {
         name: 'Like',
@@ -26,7 +24,6 @@ const postFooterIcons = [
         'https://cdn-icons-png.flaticon.com/512/9542/9542145.png',
     },
 ]
-
 const Post = ({post}) => {
   return (
     <View style={{marginBottom: 30}}>
@@ -59,7 +56,6 @@ const PostImage =({post}) => (
     <Image source={{uri: post.imageUrl}} style={{height: '100%', resizeMode: 'cover'}}/>
     </View>
 )
-
 const PostFooter = () =>(
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
     <View style={styles.leftFooterIconsContainer}>
@@ -67,7 +63,6 @@ const PostFooter = () =>(
 <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[1].imageUrl}/>
 <Icon imgStyle={[styles.footerIcon, styles.shareIcon]} imgUrl={postFooterIcons[2].imageUrl}/>
 </View>
-
 <View>
 </View>
 <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[3].imageUrl}/>
@@ -85,8 +80,6 @@ const Likes = ({post}) =>(
     <Text style={{color: 'white', fontWeight: '600' }}>{post.likes.toLocaleString('en')} likes</Text>
     </View>
 )
-
-
 const Caption = ({post}) => (
     <View style={{marginTop: 5}}>
     <Text style={{color: 'white'}}>
@@ -98,8 +91,6 @@ const Caption = ({post}) => (
      </Text>
      </View>
 )
-
-
 const CommentsSection = ({post}) => (
     <View style={{marginTop: 5}}>
     {!!post.comments.length &&(
@@ -122,7 +113,6 @@ const Comments = ({post}) => (
         ))}
     </>
 )
-
 const styles = StyleSheet.create({
     story: {
         width: 35,

@@ -25,5 +25,4 @@ const styles = StyleSheet.create({
     flex: 1
   },
 })
-
 export default HomeScreen

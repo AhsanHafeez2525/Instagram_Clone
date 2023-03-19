@@ -1,5 +1,4 @@
 import { USERS } from "./users";
-
 export const POSTS = [
     {
         imageUrl: 'https://i.ibb.co/182bP1y/4k.png',
