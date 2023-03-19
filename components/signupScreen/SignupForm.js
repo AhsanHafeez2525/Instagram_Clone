@@ -3,18 +3,20 @@ import { StyleSheet, Text, TextInput, View,Pressable, TouchableOpacity } from 'r
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
-const LoginForm = ({navigation}) => {
-const loginFormSchema = Yup.object().shape({
-    email:Yup.string().email().required('An email is required'), password: Yup.string().required().min(6, 'Your password has to have at least 6 characters')
+const SignupForm = ({navigation}) => {
+const SignupFormSchema = Yup.object().shape({
+    email:Yup.string().email().required('An email is required'),
+    username: Yup.string().required().min(2, 'A username is required'),
+    password: Yup.string().required().min(6, 'Your password has to have at least 6 characters')
 })
-  return (
+return (
     <View style={styles.wrapper}> 
     <Formik
-    initialValues={{email: '', password: ''}}
+    initialValues={{email: '', username: '', password: ''}}
     onSubmit={values => {
         console.log(values)
     }}
-    validationSchema={loginFormSchema}
+    validationSchema={SignupFormSchema}
     validateOnMount={true}
     >
      {({handleChange, handleBlur, handleSubmit, values, isValid }) => (
@@ -40,6 +42,22 @@ const loginFormSchema = Yup.object().shape({
       <View style={[styles.inputField,
     {
         borderColor: 
+       1 > values.username.length || values.username.length >= 5 ? '#ccc' : 'red',},
+    ]}
+    >
+      <TextInput 
+      placeholderTextColor='#444'
+      placeholder='Username'
+      autoCapitalize='none'
+      textContentType='username'
+      onChangeText={handleChange('username')}
+      onBlur={handleBlur('username')}
+      value={values.username}
+       />
+      </View>
+      <View style={[styles.inputField,
+    {
+        borderColor: 
        1 > values.password.length || values.password.length >= 6 ? '#ccc' : 'red',},
     ]}>
       <TextInput 
@@ -54,22 +72,18 @@ const loginFormSchema = Yup.object().shape({
       value={values.password}
        />
       </View>
-      <View style={{alignItems: 'flex-end', marginBottom: 30}}>
-        <Text style={{color: '#6BB0F5'}}>Forget password?</Text>
-      </View>
       <Pressable 
       titleSize={20}
       style={styles.button(isValid)}
       onPress={handleSubmit}
       disabled={!isValid}
       >
-        <Text style={styles.buttonText}>Log In</Text>
+        <Text style={styles.buttonText}>Sign Up</Text>
       </Pressable>
       <View style={styles.signupContainer}>
-      <Text>Don't have an account? </Text>
-      <TouchableOpacity 
-      onPress={() => navigation.push('SignupScreen')}>
-        <Text style={{color: '#6BB0F5'}}>Sign Up</Text>
+      <Text>Already have an account? </Text>
+      <TouchableOpacity  onPress={() => navigation.goBack()}>
+        <Text style={{color: '#6BB0F5'}}>Log in</Text>
       </TouchableOpacity>
       </View>
       </>
@@ -79,33 +93,33 @@ const loginFormSchema = Yup.object().shape({
   )
 }
 const styles = StyleSheet.create({
-   wrapper:{
-    marginTop: 80,
-   },
-   inputField:{
-    borderRadius: 4,
-    padding: 6,
-    backgroundColor: '#FAFAFA',
-    marginBottom: 10,
-    borderWidth: 1,
-   },
-   button: isValid =>({
-    backgroundColor: isValid ? '#0096F6' : '#9ACAF7',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 42,
-    borderRadius: 4,
-   }),
-   buttonText:{
-    fontWeight: '600',
-    color: '#fff',
-    fontSize: 20,
-   },
-   signupContainer:{
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'center',
-    marginTop: 50 
-   }
-})
-export default LoginForm
+    wrapper:{
+     marginTop: 80,
+    },
+    inputField:{
+     borderRadius: 4,
+     padding: 6,
+     backgroundColor: '#FAFAFA',
+     marginBottom: 10,
+     borderWidth: 1,
+    },
+    button: isValid =>({
+     backgroundColor: isValid ? '#0096F6' : '#9ACAF7',
+     alignItems: 'center',
+     justifyContent: 'center',
+     minHeight: 42,
+     borderRadius: 4,
+    }),
+    buttonText:{
+     fontWeight: '600',
+     color: '#fff',
+     fontSize: 20,
+    },
+    signupContainer:{
+     flexDirection: 'row',
+     width: '100%',
+     justifyContent: 'center',
+     marginTop: 50 
+    }
+ })
+export default SignupForm
