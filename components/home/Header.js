@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-const Header = () => {
+const Header = ({navigation}) => {
   return (
     <View style={styles.container}>
     <TouchableOpacity>
       <Image style={styles.logo1} source={require ('../../assets/logo1.png') }/>
     </TouchableOpacity>
     <View style={styles.iconsContainer}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.push('NewPostScreen')}>
         <Image 
             source={{
                 uri: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png'
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         marginHorizontal: 20,
-        marginTop: 7,
+        marginTop: 0,
 
     },
     iconsContainer:{

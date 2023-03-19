@@ -1,14 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
-// import HomeScreen from './screens/HomeScreen'
-import NewPostScreen from './screens/NewPostScreen'
+import SignInStack from './screens/navigation'
+import { StatusBar } from 'react-native'
 const App = () => {
   return (
     <>
     <StatusBar barStyle='light-content' backgroundColor='black'/>
-    <NewPostScreen />
+    <SignInStack />
     </>
   )
 }
-const styles = StyleSheet.create({})
 export default App
